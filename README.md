@@ -4,17 +4,20 @@ Dockerized platform for reversing
 
 ## How to use
 
-> HINT:You can use exposed ports `4444` and `8888` for gdbserver or other networkish things
+> HINT: You can use exposed ports `4444` and `8888` for gdbserver or other networkish things,
 
 ```bash
-# Spawn image
-docker run --rm -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v "$(current_dir)":/app -w /app <DOCKER-IMAGE-NAME>
-# TODO
-# Interact with it
+docker pull trib0re/docker-re
+````
+
+Basic usage:
+
+```bash
+# Spawn image & interact
+docker run -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v "$(pwd)":/dropzone trib0re/docker-re
 ```
 
 ## Installed tools
-
 
 ### Reversing
 
@@ -32,3 +35,7 @@ docker run --rm -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v "$
 
 - [ ] Add docker-compose for spawning image with caps set
 - [ ] Add more tools commonly used for reversing
+
+## License
+
+[BSD 3 License](./LICENSE)
